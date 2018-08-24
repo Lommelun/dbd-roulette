@@ -1,28 +1,23 @@
 import Perk from "src/models/Perk";
-import PerkLoader from "./PerkLoader";
+import Perks from "src/resources/perks";
 
 class PerkGenerator {
-    private loader: PerkLoader;
-    constructor() {
-        this.loader = new PerkLoader();
-    }
-
-    public getPerks(): Set<Perk> {
-        const set = new Set;
-        while (set.size < 4) {
-            set.add(this.get());
+    public getPerks(): Perk[] {
+        const array = new Array;
+        while (array.length < 4) {
+            array.push(this.get());
         }
-        return set;
+        return array;
     }
 
     public get(): Perk {
-        const i = Math.floor(Math.random() * this.loader.perks.length);
-        return this.loader.perks[i] as Perk;
+        const i = Math.floor(Math.random() * Perks.general.length);
+        return Perks.general[i] as Perk;
     }
 
     public getPerksAsString(): string {
         let perks: string = "";
-        this.getPerks().forEach(e => perks =  "[" + e.name + "] " + perks);
+        this.getPerks().forEach(e => perks = "[" + e.name + "] " + perks);
         return perks;
     }
 }
