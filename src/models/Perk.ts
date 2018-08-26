@@ -1,5 +1,6 @@
 interface Perk {
-    name: string,
+    name: string
+    flags: string[]
     image: string
 }
 
