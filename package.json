@@ -8,7 +8,9 @@
     "react-scripts-ts": "2.17.0"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
+    "start": "npm run start:local",
+    "start:local": "react-scripts-ts start",
+    "start:serve": "npm run build; pm2 serve /var/www/lommelun.com/",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
