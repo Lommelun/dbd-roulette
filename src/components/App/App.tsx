@@ -15,7 +15,7 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Rou|ette</h1>
         </header>
-        <div>
+        <div className="center_flex">
           <div style={{float:"left"}}>
             <img src={this.perks[0].image} />
             <p>{this.perks[0].name}</p>
