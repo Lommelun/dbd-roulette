@@ -1,16 +1,14 @@
+import * as _ from 'lodash';
 import Perk from "src/models/Perk";
 import Perks from "src/resources/perks";
 
 class PerkGenerator {
-    public getPerks(): Perk[] {
-        const array = new Array;
-        while (array.length < 4) {
-            const perk = this.get();
-            if (!array.includes(perk)) {
-                array.push(perk);
-            }
-        }
-        return array;
+    public generate() {
+        const list = _.shuffle([...Perks.general, ...Perks.survivor] as Perk []);
+        list.reduce((accumulator, current) => {
+            const length = accumulator.length;
+            if (current.flags === []) { return; }
+        }, [] as Perk[])
     }
 
     public get(): Perk {
